@@ -23,7 +23,10 @@ public class SpringListController implements SpringList {
     }
 
     @Override
-    public String add(String item) {
+    public String add(String item) throws TheArgumentIsMissingException {
+        if (item == null) {
+            throw new TheArgumentIsMissingException("значение не было введено");
+        }
         for (int i = 0; i < size; i++) {
             if (string[i] == null) {
                 string[i] = item;
@@ -33,7 +36,10 @@ public class SpringListController implements SpringList {
     }
 
     @Override
-    public String add(int index, String item) {
+    public String add(int index, String item) throws TheArgumentIsMissingException {
+        if (item == null) {
+            throw new TheArgumentIsMissingException("значение не было введено");
+        }
         if (string[index] != null) {
             for (int i = index; i < size; i++) {
                 if (string[i] == null) {
@@ -49,7 +55,10 @@ public class SpringListController implements SpringList {
     }
 
     @Override
-    public String set(int index, String item) throws TheArgumentIsIargerThanTheArraySizeException {
+    public String set(int index, String item) throws TheArgumentIsIargerThanTheArraySizeException, TheArgumentIsMissingException {
+        if (item == null) {
+            throw new TheArgumentIsMissingException("значение не было введено");
+        }
         if (index > size) {
             throw new TheArgumentIsIargerThanTheArraySizeException("элемент выходит за приделы списка");
         } else {
@@ -59,7 +68,10 @@ public class SpringListController implements SpringList {
     }
 
     @Override
-    public String remove(String item) throws TheArgumentIsMissingFromTheListException {
+    public String remove(String item) throws TheArgumentIsMissingFromTheListException, TheArgumentIsMissingException {
+        if (item == null) {
+            throw new TheArgumentIsMissingException("значение не было введено");
+        }
         for (int i = 0; i < size; i++) {
             if (string[i].equals(item)) {
                 string[i] = string[i + 1];
@@ -84,7 +96,10 @@ public class SpringListController implements SpringList {
     }
 
     @Override
-    public boolean contains(String item) throws TheArgumentIsMissingFromTheListException {
+    public boolean contains(String item) throws TheArgumentIsMissingFromTheListException, TheArgumentIsMissingException {
+        if (item == null) {
+            throw new TheArgumentIsMissingException("значение не было введено");
+        }
         for (int i = 0; i < size; i++) {
             if (string[i].equals(item)) {
                 return true;
@@ -96,7 +111,10 @@ public class SpringListController implements SpringList {
     }
 
     @Override
-    public int indexOf(String item) {
+    public int indexOf(String item) throws TheArgumentIsMissingException {
+        if (item == null) {
+            throw new TheArgumentIsMissingException("значение не было введено");
+        }
         for (int i = 0; i < size; i++) {
             if (string[i].equals(item)) {
                 return i;
@@ -108,7 +126,10 @@ public class SpringListController implements SpringList {
     }
 
     @Override
-    public int lastIndexOf(String item) {
+    public int lastIndexOf(String item) throws TheArgumentIsMissingException {
+        if (item == null) {
+            throw new TheArgumentIsMissingException("значение не было введено");
+        }
         for (int i = size; i > 0; i--) {
             if (string[i].equals(item)) {
                 return i;

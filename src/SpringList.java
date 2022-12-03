@@ -3,7 +3,7 @@ public interface SpringList {
     // Добавление элемента.
     // Вернуть добавленный элемент
     // в качестве результата выполнения.
-    String add(String item);
+    String add(String item) throws TheArgumentIsMissingException;
 
     // Добавление элемента
     // на определенную позицию списка.
@@ -12,7 +12,7 @@ public interface SpringList {
     // выбросить исключение.
     // Вернуть добавленный элемент
     // в качестве результата выполнения.
-    String add(int index, String item);
+    String add(int index, String item) throws TheArgumentIsMissingException;
 
     // Установить элемент
     // на определенную позицию,
@@ -21,13 +21,13 @@ public interface SpringList {
     // если индекс больше
     // фактического количества элементов
     // или выходит за пределы массива.
-    String set(int index, String item) throws TheArgumentIsIargerThanTheArraySizeException;
+    String set(int index, String item) throws TheArgumentIsIargerThanTheArraySizeException, TheArgumentIsMissingException;
 
     // Удаление элемента.
     // Вернуть удаленный элемент
     // или исключение, если подобный
     // элемент отсутствует в списке.
-    String remove(String item) throws TheArgumentIsMissingFromTheListException;
+    String remove(String item) throws TheArgumentIsMissingFromTheListException, TheArgumentIsMissingException;
 
     // Удаление элемента по индексу.
     // Вернуть удаленный элемент
@@ -37,17 +37,17 @@ public interface SpringList {
 
     // Проверка на существование элемента.
     // Вернуть true/false;
-    boolean contains(String item) throws TheArgumentIsMissingFromTheListException;
+    boolean contains(String item) throws TheArgumentIsMissingFromTheListException, TheArgumentIsMissingException;
 
     // Поиск элемента.
     // Вернуть индекс элемента
     // или -1 в случае отсутствия.
-    int indexOf(String item);
+    int indexOf(String item) throws TheArgumentIsMissingException;
 
     // Поиск элемента с конца.
     // Вернуть индекс элемента
     // или -1 в случае отсутствия.
-    int lastIndexOf(String item);
+    int lastIndexOf(String item) throws TheArgumentIsMissingException;
 
     // Получить элемент по индексу.
     // Вернуть элемент или исключение,
