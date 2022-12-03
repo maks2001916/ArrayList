@@ -160,13 +160,6 @@ public class SpringListController implements SpringList {
     }
 
     @Override
-    public void clear() {
-        for (int i = 0; i < size; i++) {
-            string[i] = null;
-        }
-    }
-
-    @Override
     public String[] toArray() {
         String[] strings = new String[size];
         for (int i = 0; i < size; i++) {
@@ -174,4 +167,12 @@ public class SpringListController implements SpringList {
         }
         return strings;
     }
+
+    @Override
+    public void clear() {
+        for (int i = 0; i < size; i++) {
+            string[i] = null;
+        }
+    }
+
 }
